@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Infra</title>
+		<link rel="stylesheet" href="../style/index.css">
+		<script src="https://kit.fontawesome.com/74fed0e2b5.js" crossorigin="anonymous"></script>
+		<script defer src="../js/go-to-top.js"></script>
+	</head>
+	<body>
+		<div id="page">
+			<h1 id="summary-title">Sommaire</h1>
+			<ol id="summary-list">
+				<li class="summary-title">
+					<a href="#plan"> Plan d'adressage</a>
+
+					<ol class="summary-sublist">
+						<li class="summary-subtitle"><a href="#plan-serv">Serveur Web </a></li>
+						<li class="summary-subtitle"><a href="#plan-pfsence">PFSence</a></li>
+						<li class="summary-subtitle"><a href="#plan-backup">Serveur de backups</a></li>
+						<li class="summary-subtitle"><a href="#plan-linux">Client Linux</a></li>
+						<li class="summary-subtitle"><a href="#plan-windows">Client Windows</a></li>
+					</ol>
+				</li>
+				<li class="summary-title">
+					<a href="#pfsence">PFSence</a>
+
+					<ol class="summary-sublist">
+						<li class="summary-subtitle"><a href="#pfsence-install">Installation</a></li>
+						<li class="summary-subtitle"><a href="#pfsence-config">Configuration</a></li>
+						<li class="summary-subtitle"><a href="#pfsence-deploy">Déploiement</a></li>
+					</ol>
+				</li>
+				<li class="summary-title">
+					<a href="#backup">Backup</a>
+
+					<ol class="summary-sublist">
+						<li class="summary-subtitle"><a href="#backup-install">Installation</a></li>
+						<li class="summary-subtitle"><a href="#backup-auto">Automatisation</a></li>
+					</ol>
+				</li>
+				<li class="summary-title">
+					<a href="#nginx">Nginx</a>
+
+					<ol class="summary-sublist">
+						<li class="summary-subtitle"><a href="#nginx-install">Installation</a></li>
+						<li class="summary-subtitle"><a href="#nginx-config">Configuration</a></li>
+						<li class="summary-subtitle"><a href="#nginx-deploy">Déploiement</a></li>
+					</ol>
+				</li>
+			</ol>
+
+			<hr>
+
+			<div id="content">
+				<h2 id="plan">Plan d'adressage</h2>
+				<div class="section">
+					<h3 id="plan-serv">Serveur Web</h3>
+					<div class="group">
+						<p>
+							Le serveur web est un serveur qui permet de gérer les pages web de l'application.<br>
+							Son adressage sur le LAN est 10.0.0.1:8080.
+						</p>
+					</div>
+
+					<h3 id="plan-pfsence">PFSence</h3>
+					<div class="group">
+						<p>
+							PFSence est le serveur pare-feu qui permet de gérer les connexions entrantes et sortantes.<br>
+							Son adressage est sur le LAN est 10.0.0.6:8080.<br>
+							Son adressage sur le WAN est 192.168.0.10:8080.
+						</p>
+					</div>
+
+
+					<h3 id="plan-backup">Serveur de backups</h3>
+					<div class="group">
+						<p>
+							Le serveur de backups est un serveur qui permet de sauvegarder les données de l'application.<br>
+							Les données sont sauvegardées tous les jours.<br>
+							Son adressage sur le LAN est 10.0.0.2:8080.
+						</p>
+					</div>
+
+					<h3 id="plan-linux">Client Linux</h3>
+					<div class="group">
+						<p>
+							Le client Linux est un client qui permet de tester l'application sur Ubuntu.<br>
+							Son adressage sur le LAN est 10.0.0.3:8080
+						</p>
+					</div>
+
+					<h3 id="plan-windows">Client Windows</h3>
+					<div class="group">
+						<p>
+							Le client Windows est un client qui permet de tester l'application sur Windows.<br>
+							Son adressage sur le LAN est 10.0.0.4:8080
+						</p>
+					</div>
+				</div>
+
+				<h2 id="pfsence">PFSence</h2>
+				<div class="section">
+					<h3 id="pfsence-install">Installation</h3>
+					<div class="group">
+						<p>
+							PFSence est un serveur pare-feu qui permet de gérer les connexions entrantes et sortantes.<br>
+							Il est installé avec le paquet <code>pfSense</code>.
+						</p>
+					</div>
+
+					<h3 id="pfsence-config">Configuration</h3>
+					<div class="group">
+						<p>
+							La configuration de PFSence est faite dans le fichier <code>/usr/local/etc/pf.conf</code>.
+						</p>
+					</div>
+
+					<h3 id="pfsence-deploy">Déploiement</h3>
+					<div class="group">
+						<p>
+							À compléter.
+						</p>
+					</div>
+				</div>
+
+				<h2 id="backup">Backup</h2>
+				<div class="section">
+					<h3 id="backup-install">Installation</h3>
+					<div class="group">
+						<p>
+							Le serveur de backups est un serveur qui permet de sauvegarder les données de l'application.
+						</p>
+					</div>
+
+					<h3 id="backup-auto">Automatisation</h3>
+					<div class="group">
+						<p>
+							Les données sont sauvegardées tous les jours grâce à un script bash qui se trouve dans le répertoire<code>/usr/local/bin/</code>.
+							Ce script est appelé <code>backup.sh</code>.<br>
+							Le script est lancé automatiquement grâce à un cron qui se trouve dans le répertoire <code>/etc/cron.d/</code>.
+						<p>
+					</div>
+				</div>
+
+				<h2 id="nginx">Nginx</h2>
+				<div class="section">
+					<h3 id="nginx-install">Installation</h3>
+					<div class="group">
+						<p>
+							Nginx est un logiciel permettant de gérer les requêtes HTTP/HTTPS et de publier des pages web.<br>
+							Il est installé avec le paquet <code>nginx</code>.
+						</p>
+					</div>
+
+					<h3 id="nginx-config">Configuration</h3>
+					<div class="group">
+						<p>
+							La configuration de Nginx est faite dans le fichier <code>/etc/nginx/nginx.conf</code>.<br>
+							<br>
+							Un fichier de configuration <code>/etc/nginx/sites-available/</code> est créé pour chaque site web.<br>
+							Un fichier de configuration <code>/etc/nginx/sites-enabled/</code> est créé pour chaque site web qui doit être publié sur le LAN.<br>
+							<br>
+							Il existe par défaut un fichier de configuration <code>/etc/nginx/sites-available/default</code> qui est utilisé par notre projet.
+						</p>
+					</div>
+
+					<h3 id="nginx-deploy">Déploiement</h3>
+					<div class="group">
+						<p>
+							À compléter.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div id="go-to-top" class="hide">
+				<i class="fa fa-arrow-up"></i>
+			</div>
+		</div>
+	</body>
+</html>

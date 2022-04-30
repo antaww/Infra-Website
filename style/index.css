@@ -1,0 +1,158 @@
+/* Variables (dark theme) */
+:root {
+	--background-main: hsl(210, 6%, 12%);
+	--horizontal-line: hsl(220, 7%, 25%);
+	--go-to-top-color: hsl(220, 7%, 30%);
+	--go-to-top-color-hover: hsl(220, 7%, 40%);
+	--text-color: hsl(140, 3%, 78%);
+	--title-color: hsl(140, 5%, 95%);
+	--subtitle-color: hsl(140, 4%, 90%);
+
+	--go-to-top-size: max(4vw, 2.7rem);
+}
+
+/* Base */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	color: var(--text-color);
+	background-color: var(--background-main);
+}
+
+/* Page */
+#page {
+	margin: 15px;
+}
+
+a {
+	text-decoration: none;
+	color: var(--text-color);
+}
+
+a:hover {
+	color: var(--title-color);
+}
+
+hr {
+	border: 0;
+	height: 1px;
+	background-color: var(--horizontal-line);
+	margin: 20px 0;
+}
+
+/* Summary */
+#summary-title {
+	font-weight: bolder;
+	color: var(--title-color);
+}
+
+.summary-title {
+	font-weight: bold;
+	color: var(--subtitle-color);
+}
+
+.summary-sublist {
+	color: var(--text-color);
+	font-weight: normal;
+}
+
+ol {
+	margin: 10px;
+	counter-reset: item;
+	padding-inline-start: 10px;
+}
+
+li {
+	margin: 5px;
+	display: block;
+	padding-left: -1em;
+}
+
+li:before {
+	content: counters(item, ".") ". ";
+	counter-increment: item;
+}
+
+/* Contenu */
+#content {
+	margin: 15px;
+}
+
+#content h2 {
+	font-weight: bold;
+	color: var(--title-color);
+	margin: 15px 0;
+}
+
+#content h3 {
+	font-weight: bold;
+	color: var(--subtitle-color);
+	margin: 15px 0;
+}
+
+#content p {
+	margin: 15px 0;
+}
+
+#content .section {
+	margin: 15px 0 15px 20px;
+}
+
+#content .group {
+	margin: 15px 0 15px 20px;
+}
+
+/* Go to top */
+#go-to-top {
+	position: fixed;
+	bottom: -20px;
+	right: 20px;
+	z-index: 1;
+	cursor: pointer;
+	border-radius: 50%;
+	background-color: var(--go-to-top-color);
+	color: var(--subtitle-color);
+	font-size: 1.5em;
+	font-weight: bold;
+	width: var(--go-to-top-size);
+	height: var(--go-to-top-size);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	transition: opacity 0.5s ease-in-out, background-color 0.3s ease-in-out, bottom 0.3s ease-in-out;
+}
+
+#go-to-top:hover {
+	background-color: var(--go-to-top-color-hover);
+	color: var(--title-color);
+}
+
+#go-to-top i {
+	font-size: 0.9em;
+}
+
+#go-to-top.show {
+	bottom: 20px;
+}
+
+#go-to-top.hide {
+	bottom: -50px;
+}
+
+/* Utils */
+.show {
+	opacity: 1;
+}
+
+.hide {
+	opacity: 0;
+}
